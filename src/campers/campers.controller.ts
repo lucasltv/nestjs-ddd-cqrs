@@ -26,10 +26,6 @@ export class CampersController {
   async createCamper(
     @Body() createCamperRequest: CreateCamperRequest,
   ): Promise<void> {
-    console.log(
-      `CampersController LOG:  createCamperRequest`,
-      createCamperRequest,
-    );
     await this.commandBus.execute<CreateCamperCommand, void>(
       new CreateCamperCommand(createCamperRequest),
     );
